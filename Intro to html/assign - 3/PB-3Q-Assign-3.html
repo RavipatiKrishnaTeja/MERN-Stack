@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Product Order Form</title>
+    <script>
+        function updateProducts() {
+            const category = document.getElementById('category').value;
+            const product = document.getElementById('product');
+            product.innerHTML = '';
+
+            let options = [];
+            if (category === 'electronics') {
+                options = ['Laptop', 'Smartphone', 'Tablet'];
+            } else if (category === 'books') {
+                options = ['Fiction', 'Non-fiction', 'Comics'];
+            } else if (category === 'clothing') {
+                options = ['Shirt', 'Pants', 'Jacket'];
+            }
+
+            options.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.toLowerCase();
+                option.textContent = item;
+                product.appendChild(option);
+            });
+        }
+
+        function setMinDate() {
+            const dateInput = document.getElementById('delivery-date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+
+        window.onload = function() {
+            updateProducts();
+            setMinDate();
+        };
+    </script>
+</head>
+<body>
+    <h2>Product Order Form</h2>
+    <form action="#" method="post">
+        <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+        <label for="category">Product Category:</label><br>
+        <select id="category" name="category" onchange="updateProducts()">
+            <option value="electronics">Electronics</option>
+            <option value="books">Books</option>
+            <option value="clothing">Clothing</option>
+        </select><br><br>
+
+                <label for="product">Product:</label><br>
+                <select id="product" name="product"></select><br><br>
+
+                        <label for="quantity">Quantity:</label><br>
+                            <input type="number" id="quantity" name="quantity" min="1" max="10" step="1"><br><br>
+
+                        <label for="delivery-date">Preferred Delivery Date:</label><br>
+                            <input type="date" id="delivery-date" name="delivery-date"><br><br>
+
+                        <label for="delivery-time">Preferred Delivery Time:</label><br>
+                            <input type="time" id="delivery-time" name="delivery-time"><br><br>
+
+                        <label for="notes">Additional Notes:</label><br>
+                        <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br><br>
+
+                        <label for="payment-options">Payment Options:</label><br>
+                            <input type="checkbox" id="credit-card" name="payment-options" value="credit-card">
+                        <label for="credit-card">Credit Card</label>
+                            <input type="checkbox" id="paypal" name="payment-options" value="paypal">
+                        <label for="paypal">PayPal</label>
+                            <input type="checkbox" id="bank-transfer" name="payment-options" value="bank-transfer">
+                        <label for="bank-transfer">Bank Transfer</label><br><br>
+                            <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

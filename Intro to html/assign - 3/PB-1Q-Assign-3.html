@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+        <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <label for="fullname">Full Name:</label><br>
+                <input type="text" id="fullname" name="fullname"><br><br>
+
+            <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" maxlength="20" required><br><br>
+
+            <label for="confirmpassword">Confirm Password:</label><br>
+                <input type="password" id="confirmpassword" name="confirmpassword" maxlength="20" required><br><br>
+
+            <label for="birthdate">Birthdate:</label><br>
+                <input type="date" id="birthdate" name="birthdate" required><br><br>
+
+                 <label for="gender">Gender:</label><br>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select><br><br>
+
+                        <label for="subscription">Subscription:</label><br>
+                            <input type="radio" id="free" name="subscription" value="free" required>
+                        <label for="free">Free</label>
+                            <input type="radio" id="basic" name="subscription" value="basic" required>
+                        <label for="basic">Basic</label>
+                            <input type="radio" id="premium" name="subscription" value="premium" required>
+                        <label for="premium">Premium</label><br><br>
+
+                                <label for="hobbies">Hobbies:</label><br>
+                                    <input type="checkbox" id="reading" name="hobbies" value="Reading">
+                                <label for="reading">Reading</label><br>
+                                    <input type="checkbox" id="traveling" name="hobbies" value="Traveling">
+                                <label for="traveling">Traveling</label><br>
+                                    <input type="checkbox" id="coding" name="hobbies" value="Coding">
+                                <label for="coding">Coding</label><br>
+                                    <input type="checkbox" id="sports" name="hobbies" value="Sports">
+                                <label for="sports">Sports</label><br><br>
+
+                                    <label for="profilepicture">Profile Picture:</label><br>
+                                        <input type="file" id="profilepicture" name="profilepicture" accept=".jpg, .jpeg, .png" required><br><br>
+
+                                            <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            const birthdate = new Date(document.getElementById('birthdate').value);
+            const today = new Date();
+            const age = today.getFullYear() - birthdate.getFullYear();
+            const monthDifference = today.getMonth() - birthdate.getMonth();
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+
+            if (age < 18) {
+                alert('You must be at least 18 years old.');
+                return false;
+            }
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmpassword').value;
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Feedback Form</title>
+    <style>
+        form 
+        {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="range"] 
+        {
+            width: 100%;
+        }
+        .range-value 
+        {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Feedback Form</h2>
+        <form action="#" method="post" oninput="rangeValue.innerText = serviceRating.value">
+
+            <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+
+            <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" placeholder="Enter your feedback here" rows="4" cols="50"></textarea><br><br>
+
+            <label for="serviceRating">Rate our service: <span class="range-value" id="rangeValue">5</span></label>
+                <input type="range" id="serviceRating" name="serviceRating" min="0" max="10" value="5"><br><br>
+
+                        <label for="feedbackType">Feedback Type:</label>
+                            <input type="radio" id="compliment" name="feedbackType" value="compliment" required>
+
+                        <label for="compliment">Compliment</label><br>
+                            <input type="radio" id="complaint" name="feedbackType" value="complaint" required>
+
+                        <label for="complaint">Complaint</label><br>
+                            <input type="radio" id="suggestion" name="feedbackType" value="suggestion" required>
+
+                        <label for="suggestion">Suggestion</label><br><br>
+                            <input type="checkbox" id="agree" name="agree" required>
+
+                        <label for="agree"><b><i>I agree to the </i></b><a href="#feedback-policy"><u>feedback policy</u></a></label><br><br>
+                            <input type="submit" value="Submit">
+    </form>
+
+        <h2 id="feedback-policy">Feedback Policy</h2>
+        <p>Please review our feedback policy before submitting your feedback. We value your input and strive to improve our services based on your suggestions and comments.</p>
+</body>
+</html>
