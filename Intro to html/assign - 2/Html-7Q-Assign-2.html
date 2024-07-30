@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABLE-LAYOUT</title>
+</head>
+<body>
+    <h2>HTML-NESTED-TABLE-LAYOUT-DOC</h2>
+    <table style="width:50%" border="8" cellspacing="2">
+        <thead>
+            <tr>
+                <th>A Column</th>
+                <th>B Column</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <table border="1" cellspacing="2">
+                        <thead>
+                            <tr>
+                                <th scope="col">First Sub Column</th>
+                                <th scope="col">Second Sub Column</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">User Name</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Last Name</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">User Country</th>
+                                <td>
+                                    <label for="country">Country:</label>
+                                    <select id="country" name="country" class="form-control">
+                                        <option value="India">India</option>
+                                        <option value="America">America</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Germany">Germany</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <ul>
+                        <li>First Line
+                            <ul>
+                                <li>First A Sub-line</li>
+                                <li>First B Sub-line</li>
+                                <li>First C Sub-line</li>
+                            </ul>
+                        </li>
+                        <li>Second Line
+                            <ul>
+                                <li>Second A Sub-line</li>
+                                <li>Second B Sub-line</li>
+                                <li>Second C Sub-line</li>
+                            </ul>
+                        </li>
+                        <li>Third Line
+                            <ul>
+                                <li>Third A Sub-line</li>
+                                <li>Third B Sub-line</li>
+                                <li>Third C Sub-line</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Comments">Comments:</label>
+                    <textarea name="Comments" rows="5" cols="15">Write a Comment</textarea>
+                </td>
+                <td>
+                    <input type="submit">
+                    <input type="reset">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABLE-LAYOUT</title>
+</head>
+<body>
+    <h2>HTML-NESTED-TABLE-LAYOUT-DOC</h2>
+        <table style width="50%" border="8" cellspacing="2">
+            <thread>
+                <tr>
+                    <th>A Column</th>
+                    <th>B Column</th>
+                </tr>
+            </thread>
+            <tr>
+                <td>
+                    <thread>
+                        <tr>
+                            <th scope="col">First Sub Column</th>
+                            <th scope="col">Second Sub Column</th>
+                        </tr>
+                    </thread>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">User Name</th>
+                                    <td><input type="text"></td>
+                                </tr>
+                                <tr>
+                                        <th scope="row">Last Name</th>
+                                        <td><input type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <th scope="row">User Country</th>
+                                        <td><label for="country">country</label>
+                                            <select id="country" name="country" class="form-control">
+                                                <option value="India">India</option>
+                                                <option value="America">America</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Italy">Italy</option>
+                                                <option value="Germany">Germany</option>
+                                            </select>
+                                        </td>
+                                    </td>
+                                     </tr>
+                                 </tbody>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li>First Line
+                                                    <ul>
+                                                        <li>First A Sub-line</li>
+                                                        <li>First B Sub-line</li>
+                                                        <li>First C Sub-line</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Second Line
+                                                    <ul>
+                                                        <li>Second A->Sub-line</li>
+                                                        <li>Second B->Sub-line</li>
+                                                        <li>Second C->Sub-line</li>
+                                                    </ul>
+                                                </li>
+                                                <li>First Line
+                                                    <ul>
+                                                        <li>Third A->Sub-line</li>
+                                                        <li>Third B->Sub-line</li>
+                                                        <li>Third C->Sub-line</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                           <td>
+                                                <label for="Comments"></label>
+                                                <textarea name="Comments" rows="5" cols="15">Write a Comment</textarea>
+                                           </td>
+                                                <p> </p><td><input type="submit"></td>
+                                                <p> </p><td><input type="reset"></td>
+                                        </tr>
+        </td>
+    </tr>
+    </table>
+</body>
+</html> -->
