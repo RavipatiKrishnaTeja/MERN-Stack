@@ -1,0 +1,46 @@
+/* CSS selector
+- element selector. */
+
+div {
+  background-color: lightcyan;
+}
+
+h1 {
+  font-size: 60px;
+}
+h2 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 20px;
+}
+
+/* class selector */
+
+.unique-style {
+  background-color: #232321;
+  color: white;
+  font-weight: 10;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.box-look {
+  color: #ccffe5;
+  background-color: lightskyblue;
+}
+
+/* ID selector */
+#section-1 {
+  font-style: italic;
+}
+
+#section-2 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* universal selector
+ */
+* {
+  text-align: center;
+}

@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(195, 227, 244);
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: rgb(193, 194, 240);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: rgb(62, 5, 116);
+}
+
+header h1 {
+    margin: 0;
+    text-shadow: #000;
+}
+
+.cart-item {
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.item-details {
+    flex-grow: 1;
+    padding: 0 30px;
+}
+
+.item-details h2 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.item-details p {
+    margin: 5px 0 0 0;
+    font-size: 1.2em;
+    color: #888;
+}
+
+.item-quantity {
+    text-align: center;
+}
+
+.item-quantity label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.item-quantity input {
+    width: 50px;
+    text-align: center;
+}
+
+.item-total {
+    text-align: center;
+}
+
+.item-total p {
+    margin: 0;
+    font-size: 1.2em;
+    color: #000;
+}
+
+footer {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.checkout-btn {
+    background-color: #4d41d4;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+
+
+
+
+
+
+
+
+
