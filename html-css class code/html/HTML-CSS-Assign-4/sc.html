@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="sc.css">
+
+    <style>
+        body {
+          color: rgb(100, 3, 156);
+        }
+        
+        h1 {
+          color: rgb(144, 31, 205);
+        }
+
+        h5 {
+            color: rgb(100, 99, 99)
+        }
+
+        p {
+            color: gray;
+        }
+
+        a {
+            color: rgb(88, 153, 232);
+        }
+        </style>
+</head>
+<body>
+    <div class="shopping-cart">
+        <h1>Shopping Cart</h1>
+        <div class="cart-item">
+            <img src="data:image/jpeg;base64,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" alt="Item 1" class="item-image">
+            <div class="item-details">
+                <div class="item-matter">Lemon Drink</div>
+                <div class="item-price">$10.00</div>
+                <p>Summer is coming and a glass of lemonade on a hot summer day is the most refreshing drink one can have in summer. Lemonade calms your body and refreshes you instantly. Lemon is a flavoured fruit.</p>
+                <h5 aria-live="polite">Click here for more information</h5>
+                <a href="https://lemonconcentrate.com/"><p> </p>Link</a>
+            </div>
+        </div>
+        <div class="cart-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5tnCgicdgP6vo_cVcS2eWAMCWFwcmoDcjhw&s" alt="Item 2" class="item-image">
+            <div class="item-details">
+                <div class="item-matter">Vegetable Salad</div>
+                <div class="item-price">$15.00</div>
+                <p>A salad is a dish consisting of mixed ingredients, frequently vegetables. They are typically served chilled or at room temperature, though some can be served warm. Condiments and salad dressings, which exist in a variety of flavors, are used to make a salad.</p>
+                <h5 aria-live="polite">Click here for more information</h5>
+                <a href="https://frugivore.in/subcategory/salads/handcrafted-salads">Link</a>
+            </div>
+
+        </div>
+        <div class="cart-item">
+            <img src="https://media.istockphoto.com/id/936205852/photo/chocolate-ice-cream-in-a-glass-cup.jpg?s=612x612&w=0&k=20&c=gcPTroDVPNSlCS45BkqEG-6-REnKFEzboBpuX8O3lY4=" alt="Item 3" class="item-image">
+            <div class="item-details">
+                <div class="item-matter">Chocolate Ice Cream</div>
+                <div class="item-price">$20.00</div>
+                <p>Chocolate ice cream is a flavour of ice cream which is the second most common flavour of ice cream, after vanilla. Chocolate ice cream is made by blending in cocoa powder in along with the eggs (optional), cream, vanilla and sugar used to make ice cream. The cocoa powder gives the ice cream a brown colour.</p>
+                 <h5 aria-live="polite">Click here for more information</h5>
+                 <a href="https://baskinrobbinsindia.com/">Link</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
