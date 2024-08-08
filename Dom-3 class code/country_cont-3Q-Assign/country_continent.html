@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Continent Finder</title>
+</head>
+<body>
+    <h1>Country Continent Finder</h1>
+    <label for="country_select">Select a country:</label>
+    <select id="country_select">
+        <option value="India">India</option>
+        <option value="United States of America">United States of America</option>
+        <option value="China">China</option>
+        <option value="Nepal">Nepal</option>
+        <option value="Australia">Australia</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Mexico">Mexico</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Canada">Canada</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Sweden">Sweden</option>
+    </select>
+    <br><br>
+    <button id="find_continent_button" onclick="findContinent()">Find Continent</button>
+
+    <script>
+        function findContinent() {
+            var country = document.getElementById('country_select').value;
+            var continent;
+
+            switch (country) {
+                case 'India':
+                case 'China':
+                case 'Nepal':
+                case 'Singapore':
+                    continent = 'Asia';
+                    break;
+                case 'United States of America':
+                case 'Canada':
+                case 'Mexico':
+                    continent = 'North America';
+                    break;
+                case 'Argentina':
+                case 'Brazil':
+                    continent = 'South America';
+                    break;
+                case 'Australia':
+                    continent = 'Australia';
+                    break;
+                case 'France':
+                case 'Germany':
+                case 'Sweden':
+                    continent = 'Europe';
+                    break;
+                case 'South Africa':
+                case 'Nigeria':
+                    continent = 'Africa';
+                    break;
+                default:
+                    continent = 'Unknown';
+            }
+
+            alert('The continent is ' + continent);
+        }
+    </script>
+</body>
+</html>

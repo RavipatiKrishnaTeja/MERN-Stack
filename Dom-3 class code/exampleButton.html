@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  //   let btn1 = document.createElement("button");
+  //   btn1.textContent = "Primary"; //innerText
+  //   btn1.style.backgroundColor = "blue";
+  //   btn1.style.color = "white";
+
+  //   let btn2 = document.createElement("button");
+  //   btn2.textContent = "Secondary"; //innerText
+  //   btn2.style.backgroundColor = "grey";
+  //   btn2.style.color = "white";
+
+  //   let btn3 = document.createElement("button");
+  //   btn3.textContent = "Success"; //innerText
+  //   btn3.style.backgroundColor = "green";
+  //   btn3.style.color = "white";
+
+  let buttonObj = [
+    { textContent: "primary", color: "white", bgColor: "blue" },
+    { textContent: "Secondary", color: "white", bgColor: "grey" },
+    { textContent: "Danger", color: "black", bgColor: "red" },
+    { textContent: "Warning", color: "white", bgColor: "orange" },
+  ];
+
+  buttonObj.map(function (element) {
+    let btn = document.createElement("button");
+    btn.textContent = element.textContent;
+    btn.style.color = element.color;
+    btn.style.backgroundColor = element.bgColor;
+    document.querySelector("body").append(btn);
+  });
+
+  //   document.querySelector("body").append(btn1, btn2, btn3);
+</script>
+//9. investors

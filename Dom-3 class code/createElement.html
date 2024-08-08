@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <h1>I am heading 1</h1> -->
+  </body>
+</html>
+<script>
+  //createElement---> create tags
+
+  //1. creating tags-->h1,h2, div, img, p
+  //2. writing innerText.
+  //3 append--> we will add this created tag into body tag
+
+  let heading = document.createElement("h1");
+  heading.innerText = "I am heading 1";
+
+  let box = document.createElement("div");
+  box.innerText = "I am div";
+
+  let paragraph = document.createElement("p");
+  paragraph.innerText = "I am paragraph";
+
+  let body = document.querySelector("body");
+
+  body.append(heading, box, paragraph); // it will add html tags into body tag
+</script>
