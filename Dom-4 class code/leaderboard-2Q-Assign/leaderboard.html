@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Leaderboard</h1>
+        <div class="scoreboard">
+            <div>
+                <label for="minScore">MIN:</label>
+                <input type="text" id="minScore" value="43" readonly>
+            </div>
+            <div>
+                <label for="maxScore">MAX:</label>
+                <input type="text" id="maxScore" value="2019" readonly>
+            </div>
+        </div>
+        
+        <label for="currentScore" class="score-label">SCORE:</label>
+        <input type="text" id="currentScore" readonly>
+        
+        <div class="buttons">
+            <div class="row">
+                <button class="green" onclick="addNumber(1)">1</button>
+                <button class="orange" onclick="addNumber(2)">2</button>
+                <button class="green" onclick="addNumber(3)">3</button>
+            </div>
+            <div class="row">
+                <button class="orange" onclick="addNumber(4)">4</button>
+                <button class="orange" onclick="addNumber(5)">5</button>
+                <button class="orange" onclick="addNumber(6)">6</button>
+            </div>
+            <div class="row">
+                <button class="green" onclick="addNumber(7)">7</button>
+                <button class="orange" onclick="addNumber(8)">8</button>
+                <button class="green" onclick="addNumber(9)">9</button>
+            </div >
+            <div class="row">
+                <button > # </button>
+                <button class="violet" onclick="addNumber(0)">0</button>
+                <button > # </button>
+            </div>
+        </div>
+        <button class="enter-btn" onclick="enterScore()">ENTER</button>
+    </div>
+    <script src="leaderboard.js"></script>
+</body>
+</html>

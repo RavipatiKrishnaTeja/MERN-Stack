@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div>
+      <form>
+        <label>Item name</label>
+        <input type="text" id="name" placeholder="Enter Item Name" />
+
+        <br />
+
+        <label>Quantity</label>
+        <input type="number" id="qty" placeholder="Enter Quantity" />
+        <br />
+
+        <label> Priority</label>
+        <select id="priority">
+          <option value="low">Low</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+        </select>
+
+        <input type="submit" />
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item name</th>
+            <th>Quantity</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- this data will be coming from js -->
+          <!-- <tr>
+            <td>name</td>
+            <td>qty</td>
+            <td>Priority</td>
+           </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
+<script src="./index.js"></script>
