@@ -42,7 +42,7 @@
             background-color: #fff;
             border: 1px solid #ddd;
             padding: 10px;
-            width: calc(20% - 12px); /* 5 cards per row */
+            width: calc(20% - 12px);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
             text-align: center;
@@ -94,7 +94,7 @@
 <div class="product-container" id="productContainer"></div>
 
 <script>
-    // Replace this with the data from the link provided, including image URLs
+   
     const productsData = [
         {
             category: "electronics",
@@ -153,13 +153,13 @@
             imgSrc: "https://m.media-amazon.com/images/I/51k9hA+tXiL._SL500_.jpg"
         }
         
-        // Add more products as per your data
+    
     ];
 
     const productContainer = document.getElementById('productContainer');
     const categoryFilter = document.getElementById('categoryFilter');
 
-    // Function to create and display product cards
+ 
     function displayProducts(products) {
         productContainer.innerHTML = '';
         products.map(product => {
