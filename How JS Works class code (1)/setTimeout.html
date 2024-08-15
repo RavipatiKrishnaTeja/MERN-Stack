@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Set Timeout</h1>
+  </body>
+</html>
+<script>
+  console.log(1);
+
+  setTimeout(function () {
+    console.log(2);
+  }, 1000); //1000 ms->1s
+
+  setTimeout(function () {
+    console.log(4);
+  }, 1000);
+  console.log(3);
+  //setTimeout --> it is a method which is given by browser,
+  // it take two argument
+  // 1. will be a function which we want to execute.
+  //2. duration , delay after which  you want to execute this function.
+</script>
