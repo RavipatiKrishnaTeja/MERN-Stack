@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Payment</h2>
+<form onsubmit="validatePaymentForm(event)">
+    <input type="number" id="cardNumber" placeholder="Card Number" required>
+    <input type="number" id="cvv" placeholder="CVV" required>
+    <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YY)" required>
+    <input type="text" id="name" placeholder="Name" required>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function validatePaymentForm(event) {
+        event.preventDefault();
+        const cardNumber = document.getElementById('cardNumber').value;
+        const cvv = document.getElementById('cvv').value;
+        const expiryDate = document.getElementById('expiryDate').value;
+        const validCardNumber = '1234567812345678';
+        const validCvv = '123';
+        const validExpiryDate = '12/24';
+
+        if (cardNumber === validCardNumber && cvv === validCvv && expiryDate === validExpiryDate) {
+            window.location.href = 'otp.html';
+        } else {
+            alert('Error: Invalid payment details.');
+        }
+    }
+</script>
+
+</body>
+</html>

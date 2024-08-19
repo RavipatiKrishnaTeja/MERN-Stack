@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        #cartItems {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .cart-item p {
+            margin: 5px 0;
+        }
+        .cart-item input {
+            width: 50px;
+            margin-right: 10px;
+        }
+        .cart-item button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .promo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #promoCode {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+        .apply-promo {
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        #totalPrice {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .buy-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .payment-form {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .payment-form input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .submit-payment {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .submit-payment:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+
+<div class="promo-container">
+    <input type="text" id="promoCode" placeholder="Enter Promo Code">
+    <button class="apply-promo" onclick="applyPromo()">Apply Promo</button>
+</div>
+
+<div id="totalPrice"></div>
+
+<!-- Buy Button -->
+<button class="buy-button" onclick="showPaymentForm()">Buy Now</button>
+
+<!-- Payment Form -->
+<div class="payment-form" id="paymentForm">
+    <h3>Payment Details</h3>
+    <input type="text" id="cardNumber" placeholder="Card Number" maxlength="16">
+    <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YY)">
+    <input type="text" id="cvv" placeholder="CVV" maxlength="3">
+    <input type="text" id="name" placeholder="Cardholder Name">
+    <button class="submit-payment" onclick="validatePayment()">Submit Payment</button>
+</div>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let totalPrice = calculateTotalPrice(cart);
+
+    function displayCart() {
+        const cartItems = document.getElementById('cartItems');
+        cartItems.innerHTML = '';
+        cart.forEach((item, index) => {
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <div>
+                        <h3>${item.title}</h3>
+                        <p>Price: $${item.price.toFixed(2)}</p>
+                        <p>Quantity: <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)"></p>
+                    </div>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </div>
+            `;
+        });
+        document.getElementById('totalPrice').innerText = 'Total Price: $' + totalPrice.toFixed(2);
+    }
+
+    function calculateTotalPrice(cart) {
+        return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    }
+
+    function updateQuantity(index, quantity) {
+        cart[index].quantity = parseInt(quantity);
+        totalPrice = calculateTotalPrice(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        totalPrice = calculateTotalPrice(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+    }
+
+    function applyPromo() {
+        const promoCode = document.getElementById('promoCode').value;
+        if (promoCode === 'flmi30') {
+            totalPrice *= 0.7; // in the above promo code it will Apply 30% discount
+            alert("Promo code applied! Discount applied to total.");
+        } else {
+            alert("Invalid promo code.");
+        }
+        document.getElementById('totalPrice').innerText = 'Total Price: $' + totalPrice.toFixed(2);
+    }
+
+    function showPaymentForm() {
+        if (cart.length === 0) {
+            alert("Your cart is empty. Add items to your cart before proceeding to buy.");
+            return;
+        }
+        document.getElementById('paymentForm').style.display = 'block';
+    }
+
+    function validatePayment() {
+        const cardNumber = document.getElementById('cardNumber').value;
+        const expiryDate = document.getElementById('expiryDate').value;
+        const cvv = document.getElementById('cvv').value;
+        const name = document.getElementById('name').value;
+
+        // all Hardcoded validation data
+        const validCardNumber = '123';
+        const validExpiryDate = '123';
+        const validCVV = '123';
+        const validName = '123';
+
+        if (cardNumber !== validCardNumber || expiryDate !== validExpiryDate || cvv !== validCVV || name === '') {
+            alert('Error: Invalid payment details.');
+        } else {
+            // It Redirect to OTP.html for OTP verification
+            window.location.href = 'otp.html';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', displayCart);
+</script>
+
+</body>
+</html>

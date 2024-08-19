@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center; /* it uses to Center align the "Shoes" title */
+        }
+
+        select {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* it creates space between product items */
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            width: 300px; /* it will set a fixed width for products */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: 200px; /* it will set a fixed height for images */
+            object-fit: cover; /* it is because to ensure images maintain aspect ratio */
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Men's Products</h2>
+
+<select onchange="sortProducts(event)">
+    <option value="priceHighLow">Price: High to Low</option>
+    <option value="priceLowHigh">Price: Low to High</option>
+    <option value="nameAsc">Name: Ascending</option>
+    <option value="nameDesc">Name: Descending</option>
+</select>
+
+<select onchange="filterByCategory(event)">
+    <option value="all">All</option>
+    <option value="Zaka Footware">Shoes</option>
+    <option value="Nibosi">Watchs</option>
+    <option value="Classy Messi">Hats</option>
+    <option value="Ray-Ban">spectacles</option>
+</select>
+
+<div class="product-container" id="productList"></div>
+
+<script>
+    const products = [
+        { id: 1, category: "Zaka Footware", title: "Shoes", name: 'Casual Wear Mens Shoes With Lace Closure', price: 399, brand: 'Zaka Footware', image: 'https://tiimg.tistatic.com/fp/1/007/747/casual-wear-mens-shoes-with-lace-closure-all-size-available--320.jpg', description: 'Step out in style with our men\'s casual wear shoes. Designed for comfort and versatility, these shoes feature a soft canvas upper that molds to your foot.' },
+        { id: 2, category: "Nibosi", title: "Watchs", name: 'Men Water-Resistant Chronograph Watch-NB-2575', price: 799, brand: 'Nibosi', image: 'https://assets.ajio.com/medias/sys_master/root/20230605/kfZ9/647e238bd55b7d0c634ef656/-473Wx593H-466236833-black-MODEL.jpg', description: 'Elevate your style with our black water-resistant watch. Featuring a sleek black stainless steel case and minimalist dial, this watch complements any outfit.' },
+        { id: 3, category: "Classy Messi", title: "Hats", name: 'Fashion Forward: The Essential Mens Hat', price: 229, brand: 'Classy Messi', image: 'https://m.media-amazon.com/images/I/710oTl4IoTL._AC_UY1100_.jpg', description: 'Complete your look with our mens classic hat, a versatile accessory for any occasion.' },
+        { id: 4, category: "Ray-Ban", title: "spectacles", name: 'Functionality Meets Fashion: Mens Stylish Glasses', price: 199, brand: 'Ray-Ban', image: 'https://www.yourspex.com/media/catalog/product/cache/0297f04d377a4b6152a98ca89b71f8a1/9/6/962023-03_1.jpg.mst.webp', description: 'Enhance your vision and style with our mens stylish spectacles, designed for the modern man.' },
+    ];
+
+    function displayProducts(filteredProducts) {
+        const productList = document.getElementById('productList');
+        productList.innerHTML = ''; // it will clear existing products
+        filteredProducts.forEach(product => {
+            productList.innerHTML += `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p> <!-- Added product description -->
+                    <p>Price: $${product.price}</p>
+                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                </div>
+            `;
+        });
+    }
+
+    function sortProducts(event) {
+        const sortOption = event.target.value;
+        let sortedProducts = [...products];
+        if (sortOption === 'priceHighLow') {
+            sortedProducts.sort((a, b) => b.price - a.price);
+        } else if (sortOption === 'priceLowHigh') {
+            sortedProducts.sort((a, b) => a.price - b.price);
+        } else if (sortOption === 'nameAsc') {
+            sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortOption === 'nameDesc') {
+            sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+        }
+        displayProducts(sortedProducts);
+    }
+
+    function filterByCategory(event) {
+        const category = event.target.value;
+        const filteredProducts = category === 'all' ? products : products.filter(product => product.brand === category);
+        displayProducts(filteredProducts);
+    }
+
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProduct = cart.find(item => item.id === productId);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1; // it will increase quantity if already in cart
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Product added to cart!');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => displayProducts(products));
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

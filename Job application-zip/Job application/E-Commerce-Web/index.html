@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="brand">Reebok</div>
+        <ul class="nav-links">
+            <li><a href="Mens.html" onclick="checkAuth(event)">Men</a></li>
+            <li><a href="Womens.html" onclick="checkAuth(event)">Women</a></li>
+            <li><a href="Products.html" onclick="checkAuth(event)">Products</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Signup.html">Signup</a></li>
+            <li><a href="Signout.html">Sign out</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    function checkAuth(event) {
+        if (!localStorage.getItem('isAuthenticated')) {
+            event.preventDefault();
+            alert('Please log in to view products.');
+            window.location.href = 'login.html';
+        }
+    }
+
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cartCount').innerText = cart.length;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+
+</body>
+</html>
