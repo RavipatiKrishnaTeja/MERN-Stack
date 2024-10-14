@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  //js constructor
+
+  //   function Student(a, b) {
+  //     this.firstName = a;
+  //     this.lastName = b;
+
+  //     this.displayFullName = function () {
+  //       console.log(this.firstName + this.lastName);
+  //     };
+  //   }
+
+  //   let firstStudent = new Student("flm", "learn here");
+  //   console.log(firstStudent);
+
+  //classes
+
+  //syntax
+
+  //   class name{
+  //   //     contructor(){
+
+  //   //     }
+  //   //   }
+
+  //   class Student {
+  //     constructor(a, b) {
+  //       this.firstName = a;
+  //       this.lastName = b;
+
+  //       this.displayFullName = function () {
+  //         console.log(this.firstName + this.lastName);
+  //       };
+  //     }
+  //   }
+
+  //   const person = new Student("mahesh", "goud");
+  //   console.log(person);
+
+  //second way
+
+  class Student {
+    constructor(a, b) {
+      this.firstName = a;
+      this.lastName = b;
+    }
+
+    //getter methods
+    displayFullName() {
+      console.log(this.firstName + this.lastName);
+    }
+
+    //setter method
+    UpdateLastName(newValue) {
+      this.lastName = newValue;
+    }
+  }
+
+  const Student1 = new Student("Harsh", "vars");
+  console.log(Student1);
+  Student1.UpdateLastName("vardhan");
+  console.log(Student1);
+</script>
