@@ -1,0 +1,78 @@
+.userCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px; /* padding for a larger overall layout */
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  width: 100vw; /* Full width */
+  max-width: 100%; /* Ensure it covers the entire screen */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 30px; /* Add space on the left side of profile */
+}
+
+.profilePicture {
+  border-radius: 50%;
+  width: 80px; /* size for the profile picture */
+  height: 80px;
+  margin-right: 30px; /* space between profile picture and text */
+}
+
+.statsSection {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex: 2; /* Take up the center space between profile and follow button */
+  gap: 80px; /* it is used to increase spacing between Karma, Followers, and Posts */
+  text-align: center; /* Center the numbers and labels */
+}
+
+.statsSection div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statsSection strong {
+  font-size: 28px; /* size for the numbers */
+  font-weight: bold;
+  color: black;
+}
+
+.statsSection p {
+  font-size: 18px; /* size for the labels */
+  margin: 5px 0 0;
+  color: grey;
+}
+
+.followButton {
+  padding: 15px 30px; /* padding for a bigger button */
+  font-size: 18px; /* font size for the button text */
+  border: none;
+  border-radius: 30px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 30px; /* space on the right side of the button */
+}
+
+.followButton:hover {
+  background-color: olive;
+  color: white;
+}
+
+.following {
+  background-color: olive;
+  color: white;
+}
+
+.userCard:hover {
+  background-color: #d3d3d3;
+}
